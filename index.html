@@ -4,23 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title> 🗲 RODROO </title>
-  <style>
-    body {
-      background: #0d0d0d;
-      color: #eaeaea;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial;
-      max-width: 750px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-    h1 { font-size: 32px; margin-bottom: 5px; }
-    h2 { margin-top: 40px; font-size: 18px; opacity: 0.8; }
-    a { color: #ffffff; text-decoration: none; opacity: 0.8; }
-    a:hover { opacity: 1; }
-    .muted { opacity: 0.6; }
-    .block { margin-top: 10px; }
-  </style>
+  
+ <style>
+  .nav {
+    position: sticky;
+    top: 0;
+    background: #0d0d0d;
+    padding: 14px 0;
+    margin-bottom: 26px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    z-index: 10;
+  }
+  .nav a {
+    margin-right: 14px;
+    font-size: 13px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+    opacity: .65;
+  }
+  .nav a:hover { opacity: 1; }
+  .nav .right { float: right; }
+  .nav:after { content: ""; display: block; clear: both; }
+
+  /* anchor offset for sticky nav */
+  .section { scroll-margin-top: 72px; }
+
+  /* header spacing */
+  .header { margin-top: 8px; }
+</style>
+  
 </head>
 <body>
 
