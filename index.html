@@ -3,103 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> RODROO </title>
+  <title>RODROO</title>
+
   <style>
-    body {
-      background: #0d0d0d;
-      color: #eaeaea;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial;
-      max-width: 750px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+    :root{
+      --bg:#0d0d0d;
+      --fg:#eaeaea;
+      --muted: rgba(234,234,234,.65);
+      --muted2: rgba(234,234,234,.55);
+      --max: 750px;
     }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 5px;
+    *{ box-sizing:border-box; }
+
+    body{
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* En lugar de margin fijo grande */
+      margin: 0;
+      padding:
+        max(18px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-right))
+        max(22px, env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
+
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
-    h2 {
-      margin-top: 40px;
-      font-size: 18px;
-      opacity: 0.8;
+    /* Contenedor central: mismo “look” en desktop, mejor en móvil */
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-top: 34px; /* antes 60px; en móvil se siente gigante */
     }
 
-    a {
-      color: #ffffff;
+    h1{
+      /* Escala fluida: mantiene presencia en desktop y no revienta en móvil */
+      font-size: clamp(22px, 4.6vw, 32px);
+      line-height: 1.15;
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    h2{
+      margin: 34px 0 8px;
+      font-size: clamp(15px, 2.8vw, 18px);
+      opacity: 0.85;
+      font-weight: 600;
+    }
+
+    p, .block, .muted{
+      font-size: 16px;
+    }
+
+    .muted{
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    a{
+      color: #fff;
       text-decoration: none;
-      opacity: 0.8;
+      opacity: 0.85;
+
+      /* Mejor tap target en móvil */
+      display: inline-block;
+      padding: 4px 0;
+    }
+    a:hover{ opacity: 1; }
+    a:focus-visible{
+      outline: 2px solid rgba(255,255,255,.35);
+      outline-offset: 3px;
+      border-radius: 6px;
     }
 
-    a:hover {
-      opacity: 1;
-    }
-
-    .muted {
-      opacity: 0.6;
-    }
-
-    .block {
+    .block{
       margin-top: 10px;
+      color: rgba(234,234,234,.92);
+    }
+
+    /* Espaciado entre líneas sin abusar de <br> */
+    .block > div{
+      margin: 6px 0;
+    }
+
+    /* En pantallas pequeñas: un pelín más de aire y lectura */
+    @media (max-width: 420px){
+      .wrap{ padding-top: 24px; }
+      h2{ margin-top: 28px; }
     }
   </style>
 </head>
+
 <body>
-  <h1>Rodri "RODROO" Lamora — EU [ESP] AWPer </h1>
+  <main class="wrap">
+    <h1>Rodri "RODROO" Lamora — EU [ESP] AWPer</h1>
 
-  <div class="muted">
-    ESEA Intermediate • Structured team experience since 2023 <a href="/teams/"> • <b><u>ROSTER HISTORY</u></b></a>
-  </div>
+    <p class="muted">
+      ESEA Intermediate • Structured team experience since 2023
+      <a href="/teams/"> • <b><u>ROSTER HISTORY</u></b></a>
+    </p>
 
+    <h2>Current</h2>
+    <div class="block">
+      <div><b>Current team:</b> Looking for Team</div>
+      <div><b>Role:</b> AWPer</div>
+    </div>
 
-  <h2>Current</h2>
-  <div class="block">
-    <b>Current team: </b>Looking for Team<br>
-    <b>Role: </b> AWPer
-  </div>
+    <h2>European circuit</h2>
+    <div class="block">
+      <div>ESEA LEAGUE S49 — Open (2023)</div>
+      <div>ESEA LEAGUE S50 — Open (2024) + Playoffs</div>
+      <div>ESEA LEAGUE S51 — Open (2024) + Playoffs</div>
+      <div>ESEA LEAGUE S52 — Open10 (2025) + Playoffs</div>
+      <div>ESEA LEAGUE S54 — Entry (2025) + Playoffs</div>
+      <div>ESEA LEAGUE S55 — Entry (2025) + Playoffs • Top 48 EU</div>
+      <div>ESEA LEAGUE S56 — Intermediate (2025)</div>
+    </div>
 
-  <h2>European circuit</h2>
-  <div class="block">
-    ESEA LEAGUE S49 — Open (2023)<br>
-    ESEA LEAGUE S50 — Open (2024) + Playoffs<br>
-    ESEA LEAGUE S51 — Open (2024) + Playoffs<br>
-    ESEA LEAGUE S52 — Open10 (2025) + Playoffs<br>
-    ESEA LEAGUE S54 — Entry (2025) + Playoffs <br>
-    ESEA LEAGUE S55 — Entry (2025) + Playoffs • Top 48 EU<br>
-    ESEA LEAGUE S56 — Intermediate (2025)<br>
-  </div>
+    <h2>Iberian Leagues (ESP / PT)</h2>
+    <div class="block">
+      <div>Torneo del Pantano (2021)</div>
+      <div>Summer League ESP (2022)</div>
+      <div>Iberolusa League (2023) • Playoffs</div>
+      <div>Conos League S2 (2024) • 3rd Place</div>
+      <div>Conos League S3 (2024) • Playoffs</div>
+      <div>Conos League S4 (2025) • Playoffs</div>
+      <div>CS Português S1 (2025)</div>
+      <div>UF League Portugal S5 (2025)</div>
+    </div>
 
-  <h2>Iberian Leagues (ESP / PT)</h2>
-  <div class="block">
-    Torneo del Pantano (2021)<br>
-    Summer League ESP (2022) <br>
-    Iberolusa League (2023) • Playoffs<br>
-    Conos League S2 (2024) • 3rd Place<br>
-    Conos League S3 (2024) • Playoffs<br>
-    Conos League S4 (2025) • Playoffs<br>
-    CS Português S1 (2025)<br>
-    UF League Portugal S5 (2025)<br>
-  </div>
+    <h2>Settings</h2>
+    <div class="block">
+      <div>1024x768 Black Bars</div>
+      <div>800 DPI • 0.80 sens • 0.60 zoom</div>
+      <div>Crosshair: CSGO-s5Qbj-nvF89-cJjDd-mRdSG-5Yt4N</div>
+    </div>
 
-  <h2>Settings</h2>
-  <div class="block">
-    1024x768 Black Bars<br>
-    800 DPI • 0.80 sens • 0.60 zoom<br>
-    Crosshair: CSGO-s5Qbj-nvF89-cJjDd-mRdSG-5Yt4N
-  </div>
+    <h2>Links</h2>
+    <div class="block">
+      <div><a href="https://steamcommunity.com/id/rodroocs/">Steam</a></div>
+      <div><a href="https://www.faceit.com/es/players/R0DR00">Faceit</a></div>
+      <div><a href="https://play.esea.net/users/2744068">ESEA</a></div>
+    </div>
 
-  <h2>Links</h2>
-  <div class="block">
-    <a href="https://steamcommunity.com/id/rodroocs/">Steam</a><br>
-    <a href="https://www.faceit.com/es/players/R0DR00">Faceit</a><br>
-    <a href="https://play.esea.net/users/2744068">ESEA</a><br>
-  </div>
-
-  <h2>Contact</h2>
-  <div class="block">
-    Available for competitive projects.<br>
-    DM via <a href="https://steamcommunity.com/id/rodroocs/"> <u>Steam </u></a> or <a href="https://x.com/RODROOcs"><u> X </u> </a>
-  </div>
+    <h2>Contact</h2>
+    <div class="block">
+      <div>Available for competitive projects.</div>
+      <div>
+        DM via <a href="https://steamcommunity.com/id/rodroocs/"><u>Steam</u></a>
+        or <a href="https://x.com/RODROOcs"><u>X</u></a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
