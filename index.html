@@ -6,97 +6,97 @@
   <title>RODROO</title>
 
   <style>
-    :root{
-      --bg:#0d0d0d;
-      --fg:#eaeaea;
-      --muted: rgba(234,234,234,.65);
-      --muted2: rgba(234,234,234,.55);
-      --max: 750px;
-    }
+  :root{
+    --bg:#0d0d0d;
+    --fg:#eaeaea;
 
-    *{ box-sizing:border-box; }
+    /* + contraste para móvil */
+    --muted: rgba(234,234,234,.78);
+    --max: 750px;
+  }
 
-    body{
-      background: var(--bg);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif;
+  *{ box-sizing:border-box; }
 
-      /* En lugar de margin fijo grande */
-      margin: 0;
-      padding:
-        max(18px, env(safe-area-inset-top))
-        max(16px, env(safe-area-inset-right))
-        max(22px, env(safe-area-inset-bottom))
-        max(16px, env(safe-area-inset-left));
+  html, body { height: 100%; }
 
-      line-height: 1.65;
-      -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
-    }
+  body{
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif;
 
-    /* Contenedor central: mismo “look” en desktop, mejor en móvil */
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding-top: 34px; /* antes 60px; en móvil se siente gigante */
-    }
+    margin: 0;
+    padding:
+      max(18px, env(safe-area-inset-top))
+      max(16px, env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
 
-    h1{
-      /* Escala fluida: mantiene presencia en desktop y no revienta en móvil */
-      font-size: clamp(22px, 4.6vw, 32px);
-      line-height: 1.15;
-      margin: 0 0 8px;
-      letter-spacing: 0.2px;
-    }
+    /* CLAVE: base legible (sube en móvil sin romper desktop) */
+    font-size: 18px;          /* fallback */
+    font-size: clamp(17px, 4.4vw, 18px);
 
-    h2{
-      margin: 34px 0 8px;
-      font-size: clamp(15px, 2.8vw, 18px);
-      opacity: 0.85;
-      font-weight: 600;
-    }
+    line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
 
-    p, .block, .muted{
-      font-size: 16px;
-    }
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-top: 28px;
+  }
 
-    .muted{
-      color: var(--muted);
-      margin: 0 0 10px;
-    }
+  h1{
+    font-size: clamp(24px, 6.2vw, 34px);
+    line-height: 1.12;
+    margin: 0 0 12px;
+    letter-spacing: 0.2px;
+  }
 
-    a{
-      color: #fff;
-      text-decoration: none;
-      opacity: 0.85;
+  h2{
+    margin: 36px 0 10px;
+    font-size: clamp(17px, 4.4vw, 20px);
+    opacity: 0.9;
+    font-weight: 650;
+  }
 
-      /* Mejor tap target en móvil */
-      display: inline-block;
-      padding: 4px 0;
-    }
-    a:hover{ opacity: 1; }
-    a:focus-visible{
-      outline: 2px solid rgba(255,255,255,.35);
-      outline-offset: 3px;
-      border-radius: 6px;
-    }
+  .muted{
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
 
-    .block{
-      margin-top: 10px;
-      color: rgba(234,234,234,.92);
-    }
+  a{
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.92;
 
-    /* Espaciado entre líneas sin abusar de <br> */
-    .block > div{
-      margin: 6px 0;
-    }
+    display: inline-block;
+    padding: 6px 0; /* tap target mejor */
+  }
+  a:hover{ opacity: 1; }
+  a:focus-visible{
+    outline: 2px solid rgba(255,255,255,.35);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
 
-    /* En pantallas pequeñas: un pelín más de aire y lectura */
-    @media (max-width: 420px){
-      .wrap{ padding-top: 24px; }
-      h2{ margin-top: 28px; }
-    }
-  </style>
+  .block{
+    margin-top: 12px;
+    color: rgba(234,234,234,.94);
+    overflow-wrap: anywhere;
+  }
+
+  .block > div{
+    margin: 10px 0; /* + aire entre líneas */
+  }
+
+  /* Ajustes finos para pantallas pequeñas */
+  @media (max-width: 420px){
+    .wrap{ padding-top: 22px; }
+    h2{ margin-top: 30px; }
+    .block > div{ margin: 12px 0; }
+  }
+</style>
 </head>
 
 <body>
